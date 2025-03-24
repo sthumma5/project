@@ -5,7 +5,7 @@
   { "title": "Task 4: Welcome to JS", "file": "tasks/task4/task4.html" },
   { "title": "Task 5: Calculator with JS", "file": "tasks/task5/task5.html" },
   { "title": "Task 6: JS Prompt/Alert", "file": "tasks/task6/.html" },
-  { "title": "Task 7: Console Output", "file": "tasks/task7/task7.html" },
+  { "title": "Task 7: Console Output", "file": "tasks/task7/index.html" },
   { "title": "Task 8: String Operation", "file": "tasks/task8/task8.html" },
   { "title": "Task 9: Conditions", "file": "tasks/task9/task9.html" },
   { "title": "Task 10: Call-Stack with Array", "file": "tasks/task10/task10.html" },
