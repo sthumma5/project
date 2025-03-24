@@ -1,0 +1,23 @@
+<html>
+<head>
+   
+    <title>Welcome Page</title>
+    <script>
+        function welcomeUser() {
+            var username = document.getElementById("username").value;
+            if(username) {
+                alert("Welcome to JS " + username);
+            } else {
+                alert("Please enter a username.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to the JS Greeting Page</h1>
+    <label for="username">Username: </label>
+    <input type="text" id="username" placeholder="Enter your username">
+    <button onclick="welcomeUser()">Enter</button>
+</body>
+</html>
+

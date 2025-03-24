@@ -1,0 +1,57 @@
+/* General page styling */
+body {
+    font-family: "Times New Roman", serif;
+    background-color: #f0f8ff; /* Light blue background */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Header styling */
+.header_div {
+    font-size: 5.5rem; /* Increased font size for more prominence */
+    font-weight: bold;
+    margin: 30px 0; /* Added more spacing for better visibility */
+}
+
+/* Navigation bar */
+#nav_div {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+    font-size: 1.2rem;
+}
+
+/* Navigation links */
+#nav_div a {
+    text-decoration: none;
+    color: black;
+}
+
+#nav_div a:hover {
+    text-decoration: underline;
+}
+
+/* Content section */
+.content_div {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #f8fbff; /* Slightly lighter shade for contrast */
+    padding: 15px;
+    min-height: 400px; /* Ensures proper spacing */
+}
+
+/* Embedded iframe */
+iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+/* Styling for emphasized text */
+strong {
+    font-weight: bold;
+}

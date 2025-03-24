@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uppercase Converter</title>
+    <style>
+        body {
+            text-align: left;
+            margin: 50px;
+        }
+        input {
+            padding: 8px;
+            width: 300px;
+            font-size: 16px;
+        }
+        #output {
+            margin-left: 20px;
+            margin-top: 20px;
+            padding: 15px;
+            width: 300px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            background-color: #f8f8f8;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Uppercase Text Converter</h2>
+    
+    <input type="text" id="input" placeholder="Enter text here.." onkeyup="convertToUpper()">
+    
+    <div id="output" placeholder="output will be displayed..."></div>
+
+    <script>
+        function convertToUpper() {
+            let input= document.getElementById("input");
+            let output = document.getElementById("output");
+            output.textContent = input.value.toUpperCase();
+        }
+    </script>
+
+</body>
+</html>

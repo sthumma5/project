@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #1e3c72;
+  color: white;
+}
+
+header {
+  background: #111;
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  height: calc(100vh - 120px);
+}
+
+aside {
+  width: 250px;
+  background: #0f172a;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+aside h3 {
+  margin-top: 0;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+
+aside li {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #333;
+}
+
+aside li:hover {
+  background: #1DAA61;
+  color: white;
+}
+
+main {
+  flex: 1;
+  background: #2563eb;
+  padding: 20px;
+  overflow-y: auto;
+}

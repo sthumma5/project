@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Number with Colors</title>
+</head>
+<body>
+
+    <h2>Random Number with Colors Array</h2>
+    <input placeholder="Enter Min Range" id="input_a" />
+    <input placeholder="Enter Max Range" id="input_b" />
+    <button onclick="generate_random_value()">Generate Random Number</button>
+    <div id="output_div" style="font-size: 20px; font-weight: bold;">Random number is:</div>
+
+    <script>
+        function generate_random_value() {
+            let a = parseInt(document.getElementById("input_a").value);
+            let b = parseInt(document.getElementById("input_b").value);
+
+            if (isNaN(a) || isNaN(b)) {
+                document.getElementById("output_div").innerHTML = "Please enter valid numbers.";
+                return;
+            }
+
+            let min = Math.min(a, b);
+            let max = Math.max(a, b);
+            let random_value = Math.floor(Math.random() * (max - min + 1)) + min;
+
+            
+            let colors = ["red", "green", "blue", "orange", "purple"];
+            let randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+            let resultElement = document.getElementById("output_div");
+            resultElement.innerHTML = "Random number is: " + random_value;
+            resultElement.style.color = randomColor;
+        }
+    </script>
+
+</body>
+</html>

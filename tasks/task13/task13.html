@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUM Housing Entry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 10px;
+        }
+        input {
+            width: 200px;
+            padding: 5px;
+        }
+        button {
+            padding: 10px;
+            width: 120px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .insert { background-color: lightgreen; }
+        .clear-input { background-color: lightcoral; }
+        .show { background-color: lightblue; }
+        .clear-display { background-color: lightgray; }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid black;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+        #searchContainer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>AUM Student Housing Entry System</h2>
+
+    <table border="0">
+        <tr>
+            <td><label for="studentID">Student ID:</label></td>
+            <td><input type="text" id="studentID"></td>
+        </tr>
+        <tr>
+            <td><label for="student">Student Name:</label></td>
+            <td><input type="text" id="student"></td>
+        </tr>
+        <tr>
+            <td><label for="dorm">Dorm Name:</label></td>
+            <td><input type="text" id="dorm"></td>
+        </tr>
+        <tr>
+            <td><label for="room">Room Number:</label></td>
+            <td><input type="text" id="room"></td>
+        </tr>
+        <tr>
+            <td><label for="lease">Lease Duration (Months):</label></td>
+            <td><input type="number" id="lease"></td>
+        </tr>
+    </table>
+
+    <br>
+
+    <button class="insert" onclick="insert()">Insert Data</button>
+    <button class="clear-input" onclick="clearInputs()">Clear Inputs</button>
+    <button class="show" onclick="showInfo()">Show All Data</button>
+    <button class="clear-display" onclick="clearDisplay()">Clear Output</button>
+
+    <div id="searchContainer">
+        <input type="text" id="searchQuery" placeholder="Search by Student ID or Name">
+        <button class="show" onclick="searchInventory()">Search Inventory</button>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+        let housingEntries = [];
+
+        function insert() {
+            let studentID = document.getElementById("studentID").value;
+            let student = document.getElementById("student").value;
+            let dorm = document.getElementById("dorm").value;
+            let room = document.getElementById("room").value;
+            let lease = document.getElementById("lease").value;
+
+            if (studentID && student && dorm && room && lease) {
+                let newEntry = {
+                    studentID: studentID,
+                    student: student,
+                    dorm: dorm,
+                    room: room,
+                    lease: lease
+                };
+
+                housingEntries.push(newEntry);
+                document.getElementById("output").innerHTML = `<p style="color:green;">Entry for ${student} added successfully!</p>`;
+                clearInputs();
+            } else {
+                document.getElementById("output").innerHTML = `<p style="color:red;">Please fill all fields!</p>`;
+            }
+        }
+
+        function showInfo() {
+            if (housingEntries.length === 0) {
+                document.getElementById("output").innerHTML = "<p style='color:red;'>No housing records yet!</p>";
+                return;
+            }
+
+            let infoText = "<strong>Stored Housing Entries:</strong><br><ul>";
+            housingEntries.forEach(entry => {
+                infoText += `<li><strong>Student ID:</strong> ${entry.studentID}, <strong>Name:</strong> ${entry.student}, <strong>Dorm:</strong> ${entry.dorm}, <strong>Room:</strong> ${entry.room}, <strong>Lease:</strong> ${entry.lease} months</li>`;
+            });
+            infoText += "</ul>";
+            document.getElementById("output").innerHTML = infoText;
+        }
+
+        function clearInputs() {
+            document.getElementById("studentID").value = "";
+            document.getElementById("student").value = "";
+            document.getElementById("dorm").value = "";
+            document.getElementById("room").value = "";
+            document.getElementById("lease").value = "";
+        }
+
+        function clearDisplay() {
+            document.getElementById("output").innerHTML = "";
+        }
+
+        function searchInventory() {
+            let query = document.getElementById("searchQuery").value.toLowerCase();
+            if (!query) {
+                document.getElementById("output").innerHTML = "<p style='color:red;'>Please enter a search query!</p>";
+                return;
+            }
+
+            let searchResults = housingEntries.filter(entry => {
+                return entry.studentID.toLowerCase().includes(query) || entry.student.toLowerCase().includes(query);
+            });
+
+            if (searchResults.length === 0) {
+                document.getElementById("output").innerHTML = "<p style='color:red;'>No matching records found!</p>";
+                return;
+            }
+
+            let searchText = "<strong>Search Results:</strong><br><ul>";
+            searchResults.forEach(entry => {
+                searchText += `<li><strong>Student ID:</strong> ${entry.studentID}, <strong>Name:</strong> ${entry.student}, <strong>Dorm:</strong> ${entry.dorm}, <strong>Room:</strong> ${entry.room}, <strong>Lease:</strong> ${entry.lease} months</li>`;
+            });
+            searchText += "</ul>";
+            document.getElementById("output").innerHTML = searchText;
+        }
+    </script>
+
+</body>
+</html>
