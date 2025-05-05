@@ -1,0 +1,2 @@
+gh repo create my-portfolio --public --source=. --remote=origin
+
